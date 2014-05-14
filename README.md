@@ -1,4 +1,4 @@
 Deals
 =====
 
-a text based game you probably shouldn't bother playing
+A text based game you probably shouldn't bother playing.
