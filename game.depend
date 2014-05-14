@@ -1,0 +1,203 @@
+# depslib dependency file v1.0
+1398689514 source:g:\code\game\main.cpp
+	<iostream>
+	"Map.h"
+
+1398688036 source:g:\code\game\src\game.cpp
+	"Game.h"
+
+1398688036 g:\code\game\include\game.h
+
+1398689420 source:g:\code\game\src\map.cpp
+	"Map.h"
+
+1398689696 g:\code\game\include\map.h
+
+1398750940 source:e:\code\game\main.cpp
+	<iostream>
+	"Map.h"
+
+1398750044 e:\code\game\include\map.h
+	"Danlu.h"
+	"Dacti.h"
+
+1398714408 source:e:\code\game\src\game.cpp
+	"Game.h"
+
+1398714374 e:\code\game\include\game.h
+	"Map.h"
+
+1398727690 source:e:\code\game\src\map.cpp
+	"Map.h"
+
+1398751022 source:e:\code\game\src\dacti.cpp
+	"Dacti.h"
+
+1398750898 e:\code\game\include\dacti.h
+	<string>
+
+1398752168 source:e:\code\game\src\danlu.cpp
+	"Danlu.h"
+
+1398752060 e:\code\game\include\danlu.h
+	"Dacti.h"
+	"Taxfu.h"
+	"Xarci.h"
+	<string>
+
+1398750788 source:e:\code\game\src\bandit.cpp
+	"Bandit.h"
+
+1398750730 e:\code\game\include\bandit.h
+	<Danlu.h>
+
+1398727792 source:e:\code\game\src\taxfu.cpp
+	"Taxfu.h"
+
+1398729548 e:\code\game\include\taxfu.h
+	<Dacti.h>
+
+1398749530 e:\code\game\include\space.h
+	"Danlu.h"
+
+1398750592 e:\code\game\include\xarci.h
+	<Dacti.h>
+
+1398750592 source:e:\code\game\src\xarci.cpp
+	"Xarci.h"
+
+1400052998 source:f:\compscigame\code\game\main.cpp
+	<iostream>
+	<conio.h>
+	"Map.h"
+	"ParsedMap.h"
+	"Bandit.h"
+
+1400056169 f:\compscigame\code\game\include\map.h
+	"Danlu.h"
+	"Dacti.h"
+
+1399863977 f:\compscigame\code\game\include\danlu.h
+	"SorcuDacti.h"
+	"Taxfu.h"
+	"Xarci.h"
+	<string>
+
+1399508042 f:\compscigame\code\game\include\dacti.h
+	<string>
+
+1399507725 f:\compscigame\code\game\include\taxfu.h
+	<Dacti.h>
+
+1399507966 f:\compscigame\code\game\include\xarci.h
+	<Dacti.h>
+
+1398750788 source:f:\compscigame\code\game\src\bandit.cpp
+	"Bandit.h"
+
+1399775111 f:\compscigame\code\game\include\bandit.h
+	<Danlu.h>
+
+1399508080 source:f:\compscigame\code\game\src\dacti.cpp
+	"Dacti.h"
+
+1398714408 source:f:\compscigame\code\game\src\game.cpp
+	"Game.h"
+
+1398714374 f:\compscigame\code\game\include\game.h
+	"Map.h"
+
+1399508071 source:f:\compscigame\code\game\src\taxfu.cpp
+	"Taxfu.h"
+
+1399508026 source:f:\compscigame\code\game\src\xarci.cpp
+	"Xarci.h"
+
+1399863913 source:f:\compscigame\code\game\src\danlu.cpp
+	"Danlu.h"
+
+1399863647 source:f:\compscigame\code\game\src\map.cpp
+	"Map.h"
+
+1399592111 source:d:\compscigame\code\game\main.cpp
+	<iostream>
+	<conio.h>
+	"Map.h"
+	"Bandit.h"
+
+1399592508 d:\compscigame\code\game\include\map.h
+	"Danlu.h"
+	"Dacti.h"
+
+1399503986 d:\compscigame\code\game\include\danlu.h
+	"SorcuDacti.h"
+	"Taxfu.h"
+	"Xarci.h"
+	<string>
+
+1399508042 d:\compscigame\code\game\include\dacti.h
+	<string>
+
+1399507725 d:\compscigame\code\game\include\taxfu.h
+	<Dacti.h>
+
+1399507966 d:\compscigame\code\game\include\xarci.h
+	<Dacti.h>
+
+1398750788 source:d:\compscigame\code\game\src\bandit.cpp
+	"Bandit.h"
+
+1398943195 d:\compscigame\code\game\include\bandit.h
+	<Danlu.h>
+
+1399508080 source:d:\compscigame\code\game\src\dacti.cpp
+	"Dacti.h"
+
+1399506681 source:d:\compscigame\code\game\src\danlu.cpp
+	"Danlu.h"
+
+1398714408 source:d:\compscigame\code\game\src\game.cpp
+	"Game.h"
+
+1398714374 d:\compscigame\code\game\include\game.h
+	"Map.h"
+
+1399508071 source:d:\compscigame\code\game\src\taxfu.cpp
+	"Taxfu.h"
+
+1399508026 source:d:\compscigame\code\game\src\xarci.cpp
+	"Xarci.h"
+
+1399592986 source:d:\compscigame\code\game\src\map.cpp
+	"Map.h"
+
+1399774528 f:\compscigame\code\game\include\sorcudacti.h
+	"Dacti.h"
+
+1399774569 source:f:\compscigame\code\game\src\sorcudacti.cpp
+	"SorcuDacti.h"
+
+1399501017 d:\compscigame\code\game\include\sorcudacti.h
+	"Dacti.h"
+
+1399499849 source:d:\compscigame\code\game\src\sorcudacti.cpp
+	"SorcuDacti.h"
+
+1399592958 source:d:\compscigame\code\game\src\parsedmap.cpp
+	"ParsedMap.h"
+
+1399592760 d:\compscigame\code\game\include\parsedmap.h
+	<string.h>
+	<Map.h>
+
+1399773716 source:f:\compscigame\code\game\src\parsedmap.cpp
+	"ParsedMap.h"
+	<fstream>
+	<cstdlib>
+	<iostream>
+
+1399773751 f:\compscigame\code\game\include\parsedmap.h
+	<string.h>
+	<Map.h>
+	"Bandit.h"
+
