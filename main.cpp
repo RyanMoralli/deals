@@ -163,6 +163,13 @@ void moveAI(Map &m, Bandit *d, Danlu *player, double turn){
     }
 }
 
+void delZone(Zone &z){
+    for(int i=0;i<z.size;i++){
+        delete[] z.spaces[i];
+    }
+
+}
+
 int main(){
     cout << "Deals v1." << endl;
 
@@ -251,7 +258,8 @@ int main(){
             }else if(isFKey){
                 if(inp == 59){//f1
                     vision --;
-                    z = m.getZone(z.center, vision);
+                    //delZone(z);
+                    //z = m.getZone(z.center, vision);
                     noTurn = true;
                 }else if(inp == 60){//f2
                     vision++;
@@ -339,7 +347,6 @@ int main(){
                 }catch(int e){}
                 if(locked)z = m.getZone(pCord, vision);
             }else if(inp == 120){//X
-                //standing still heals for now
                 player->heal(1);
             }else if(inp == 87){//shift W
                 z=m.getZone(m.shift(z.center, UP), vision);

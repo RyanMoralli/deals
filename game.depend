@@ -201,3 +201,67 @@
 	<Map.h>
 	"Bandit.h"
 
+1400105440 source:d:\deals\main.cpp
+	<iostream>
+	<conio.h>
+	"Map.h"
+	"ParsedMap.h"
+	"Bandit.h"
+
+1400102606 d:\deals\include\map.h
+	"Danlu.h"
+	"Dacti.h"
+
+1400102606 d:\deals\include\danlu.h
+	"SorcuDacti.h"
+	"Taxfu.h"
+	"Xarci.h"
+	<string>
+
+1400102606 d:\deals\include\sorcudacti.h
+	"Dacti.h"
+
+1400102606 d:\deals\include\dacti.h
+	<string>
+
+1400102606 d:\deals\include\taxfu.h
+	<Dacti.h>
+
+1400102606 d:\deals\include\xarci.h
+	<Dacti.h>
+
+1400102606 d:\deals\include\parsedmap.h
+	<string.h>
+	<Map.h>
+	"Bandit.h"
+
+1400102606 d:\deals\include\bandit.h
+	<Danlu.h>
+
+1400102606 source:d:\deals\src\bandit.cpp
+	"Bandit.h"
+
+1400102606 source:d:\deals\src\dacti.cpp
+	"Dacti.h"
+
+1400102606 source:d:\deals\src\danlu.cpp
+	"Danlu.h"
+
+1400102606 source:d:\deals\src\map.cpp
+	"Map.h"
+
+1400102606 source:d:\deals\src\parsedmap.cpp
+	"ParsedMap.h"
+	<fstream>
+	<cstdlib>
+	<iostream>
+
+1400102606 source:d:\deals\src\sorcudacti.cpp
+	"SorcuDacti.h"
+
+1400102606 source:d:\deals\src\taxfu.cpp
+	"Taxfu.h"
+
+1400102606 source:d:\deals\src\xarci.cpp
+	"Xarci.h"
+
