@@ -138,6 +138,7 @@ CombatResult Map::attack(int x1, int y1, int x2, int y2){
             for(int i=0;i<inv.size;i++){
                 sSorcu->add(inv.dacti[i]);
             }
+            delete[] inv.dacti;
             spaces[x2][y2]->danlu = nullptr;
             cr.killed = true;
         }
@@ -161,7 +162,7 @@ Zone Map::getZone(int x, int y, int radius){
     int size = (radius*2+1)*(radius*2+1);
     Space **zoneS = new Space*[size];
     for(int i=0;i<size;i++){
-        zoneS[i] = new Space[size];
+        zoneS[i] = nullptr;
     }
     int pos = 0;
     for(int i=y+radius;i>=y-radius;i--){

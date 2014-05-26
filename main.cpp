@@ -85,6 +85,7 @@ void displayZone(Zone &z, Danlu *d, int sel){
             cout << inv.dacti[j]->getName() <<"("<<inv.dacti[j]->getWeight()<<")";
         }
     }
+    delete[] inv.dacti;
 }
 
 void printCombat(Danlu *atk, CombatResult cr){
@@ -139,6 +140,15 @@ short int getDir(Cord ai, Cord p){
     return 3*sign;
 }
 
+void delZone(Zone &z){
+    delete[] z.spaces;
+}
+
+Zone getZone(Zone &old, Map &m, Cord cord, int vision){
+    delZone(old);
+    return m.getZone(cord, vision);
+}
+
 void moveAI(Map &m, Bandit *d, Danlu *player, double turn){
     Zone z = m.getZone(m.find(d));
     for(int i=0;i<z.size;i++){
@@ -150,6 +160,7 @@ void moveAI(Map &m, Bandit *d, Danlu *player, double turn){
     }
     if((int)turn%d->speed != 0)
         return;
+    delZone(z);
     z = m.getZone(m.find(d), d->agroRange);
     for(int i=0;i<z.size;i++){
         if(z.spaces[i] && z.spaces[i]->danlu && z.spaces[i]->danlu == player){
@@ -161,13 +172,7 @@ void moveAI(Map &m, Bandit *d, Danlu *player, double turn){
             return;
         }
     }
-}
-
-void delZone(Zone &z){
-    for(int i=0;i<z.size;i++){
-        delete[] z.spaces[i];
-    }
-
+    delZone(z);
 }
 
 int main(){
@@ -219,9 +224,11 @@ int main(){
                     if(selInv){
                         inv = player->sorcu->getInv();
                         printInv(inv, sel);
+                        delete[] inv.dacti;
                     }else{
                         inv = m.getSpace(pCord)->danlu->sorcu->getInv();
                         printInv(inv, sel);
+                        delete[] inv.dacti;
                     }
                     noTurn = true;
                 }else if(inp == 80){//down arrow
@@ -240,6 +247,7 @@ int main(){
                             sel = inv.size-1;
                         }
                         printInv(inv, sel);
+                        delete[] inv.dacti;
                     }
                     noTurn = true;
                 }else if(inp == 77){//right arrow
@@ -249,6 +257,7 @@ int main(){
                         gSel = 0;
                     }
                     printInv(inv, gSel);
+                    delete[] inv.dacti;
                 }
                 isArrowKey = false;
                 noTurn = true;
@@ -258,12 +267,15 @@ int main(){
             }else if(isFKey){
                 if(inp == 59){//f1
                     vision --;
-                    //delZone(z);
-                    //z = m.getZone(z.center, vision);
+                    if(vision != 1){
+                        delZone(z);
+                        z = getZone(z, m, z.center, vision);
+                    }
                     noTurn = true;
                 }else if(inp == 60){//f2
                     vision++;
-                    z = m.getZone(z.center, vision);
+                    delZone(z);
+                    z = getZone(z, m, z.center, vision);
                     noTurn = true;
                 }else if(inp == 61){//f3
                     locked = !locked;
@@ -282,6 +294,7 @@ int main(){
                     cout << endl;
                     Inv inv = player->sorcu->getInv();
                     printInv(inv, sel);
+                    delete[] inv.dacti;
                     noTurn = true;
                 }else if(inp == 66){//f8
                     cout << endl;
@@ -289,6 +302,7 @@ int main(){
                     if(s->sorcu){
                         Inv inv = s->sorcu->getInv();
                         printInv(inv, gSel);
+                        delete[] inv.dacti;
                     }
                     noTurn = true;
                 }else if(inp == 67){//f9
@@ -310,42 +324,42 @@ int main(){
                 try{
                     pCord = m.move(pCord, LEFT);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 100){//D
                 try{
                     pCord = m.move(pCord, RIGHT);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 119){//W
                 try{
                     pCord = m.move(pCord, UP);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 115){//S
                 try{
                     pCord = m.move(pCord, DOWN);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 101){//E
                 try{
                     pCord = m.move(pCord, UPR);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 113){//Q
                 try{
                     pCord = m.move(pCord, UPL);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 122){//Z
                 try{
                     pCord = m.move(pCord, DOWNL);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 99){//C
                 try{
                     pCord = m.move(pCord, DOWNR);
                 }catch(int e){}
-                if(locked)z = m.getZone(pCord, vision);
+                if(locked)z = getZone(z, m, pCord, vision);
             }else if(inp == 120){//X
                 player->heal(1);
             }else if(inp == 87){//shift W
@@ -395,13 +409,17 @@ int main(){
             }else if(inp == 46){//. pick up item
                 SorcuDacti *gSorcu = m.sorcu(pCord);
                 SorcuDacti *pSorcu = player->sorcu;
-                Dacti *dacti = gSorcu->getInv().dacti[gSel];
+                Inv inv = gSorcu->getInv();
+                Dacti *dacti = inv.dacti[gSel];
+                delete[] inv.dacti;
                 moveItem(gSorcu, pSorcu, dacti);
                 noTurn=true;
             }else if(inp == 44){//, drop item
                 SorcuDacti *gSorcu = m.sorcu(pCord);
                 SorcuDacti *pSorcu = player->sorcu;
-                Dacti *dacti = pSorcu->getInv().dacti[sel];
+                Inv inv = pSorcu->getInv();
+                Dacti *dacti = inv.dacti[sel];
+                delete[] inv.dacti;
                 moveItem(pSorcu, gSorcu, dacti);
                 noTurn=true;
             }else if(inp == 47){// / equip item
@@ -414,12 +432,15 @@ int main(){
                         cout << "Equip Error:" << e << endl;
                     }
                 }
+                delete[] inv.dacti;
                 noTurn = true;
             }else if(inp == 39){//' unequip items
                 player->unequip();
                 noTurn=true;
             }else if(inp == 63){//? inspect item
-                Dacti *dacti = player->sorcu->getInv().dacti[sel];
+                Inv inv = player->sorcu->getInv();
+                Dacti *dacti = inv.dacti[sel];
+                delete[] inv.dacti;
                 Xarci *x = dynamic_cast<Xarci*>(dacti);
                 Taxfu *t = dynamic_cast<Taxfu*>(dacti);
                 if(x){

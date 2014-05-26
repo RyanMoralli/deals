@@ -47,7 +47,9 @@ void SorcuDacti::remove(Dacti *dacti){
         throw 1;
     }
     if(inv->dacti == dacti){
-        inv = inv->next;
+        InvSlot *next = inv->next;
+        delete inv;
+        inv = next;
         invSize--;
         load-=dacti->getWeight();
         return;
@@ -55,7 +57,9 @@ void SorcuDacti::remove(Dacti *dacti){
     InvSlot *slot = inv;
     for(int i=0;i<invSize-1;i++){
         if(slot->next->dacti == dacti){
-            slot->next = slot->next->next;
+            InvSlot *next = inv->next->next;
+            delete slot->next;
+            slot->next = next;
             invSize--;
             load-=dacti->getWeight();
             return;

@@ -51,6 +51,7 @@ ParsedMap::ParsedMap(string file):Map::Map(){
                 }else{
                     cout << "Invalid set" << args[0] << "." << endl;
                 }
+                delete[] args;
             }else if(op == 'p'){
                 string *args;
                 if(line.at(1)=='`'){
@@ -62,6 +63,7 @@ ParsedMap::ParsedMap(string file):Map::Map(){
                 stats.strength = atoi(args[2].c_str());
                 stats.stamina = atoi(args[3].c_str());
                 player = new Danlu(args[1], args[0].at(0), stats);
+                delete[] args;
             }else if(op == 'b'){
                 string *args;
                 if(line.at(1)=='`'){
@@ -73,6 +75,7 @@ ParsedMap::ParsedMap(string file):Map::Map(){
                 stats.strength = atoi(args[3].c_str());
                 stats.stamina = atoi(args[4].c_str());
                 danlu[atoi(args[0].c_str())] = new Bandit(args[2], args[1].at(0), stats, atoi(args[5].c_str()));
+                delete[] args;
             }else if(op == 'i'){
                 string *args;
                 if(line.at(1)=='`'){
@@ -114,6 +117,7 @@ ParsedMap::ParsedMap(string file):Map::Map(){
                 }else{
                     cout << "Invalid action for i " << args[0] << endl;
                 }
+                delete[] args;
             }else if(op == ':'){
                 string *args = getArgs(line, width);
                 for(int x=0;x<width;x++){
@@ -133,6 +137,7 @@ ParsedMap::ParsedMap(string file):Map::Map(){
                     }
                 }
                 y--;
+                delete[] args;
             }
         }
     }
